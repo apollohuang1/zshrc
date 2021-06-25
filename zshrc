@@ -31,13 +31,13 @@ alias c='clear'
 alias cd..='cd ..'
 alias nps='ps | wc'
 alias qfind='find . -name'
-alias plg='git pull origin main'
+alias ppg='git pull origin main'
 alias rc='subl ~/.zshrc'
 alias web='cd ~/Documents/Utility/zhengdongwang.com'
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # Push to GitHub.
-phg() {
+pg() {
   if [[ $# -eq 0 ]] ; then
     printf "No commit message!\n"
   else
@@ -48,25 +48,25 @@ phg() {
 }
 
 # Update website.
-phw() {
+pw() {
   if [[ $# -eq 0 ]] ; then
     printf "No commit message!\n"
   else
     web
     jekyll build
-    phg "$1"
+    pg "$1"
   fi
   cd -
 }
 
 # Update zshrc repository.
-phrc() {
+prc() {
   if [[ $# -eq 0 ]] ; then
     printf "No commit message!\n"
   else
     cd ~/Documents/Utility/zshrc/
     cp ~/.zshrc zshrc 
-    phg "$1"
+    pg "$1"
     source ~/.zshrc
   fi
   cd -
